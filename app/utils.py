@@ -30,13 +30,13 @@ class WdTaggerSDK:
         self.base_url = base_url
 
     async def upload(
-        self, file, token, general_threshold=0.35, character_threshold=0.85
+        self, file, token, general_threshold=0.35, character_threshold=0.75
     ):
         if not self.base_url.endswith("/"):
             self.base_url += "/"
         url = self.base_url
         if not self.base_url.endswith("upload/"):
-            url = f"{self.base_url}/upload/"
+            url = f"{self.base_url}upload/"
         data = {
             "token": token,
             "file": file,
