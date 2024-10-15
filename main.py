@@ -29,5 +29,12 @@ async def main():
     await asyncio.gather(BotRunner().run())
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+if __name__ == '__main__':
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
+#loop = asyncio.get_event_loop()
+#loop.run_until_complete(main())
